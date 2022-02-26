@@ -1,35 +1,53 @@
-import React, {useHistory} from 'react';
+import React, {useState,useEffect} from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import {goToLogin} from '../routes/coordinator'
+import {Link} from "react-router-dom"
+import styled from 'styled-components'
+import axios from 'axios'
 
 
 const Feed = () => {
 
-    //  const history = useHistory()
+  const [restaurants,setRestaurants] = useState([])
 
+  const pegarRestaurantes = ()=> {
+    const options ={
+    headers:{
+      auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFkTDljS1lIOUN5Szk4WDRYbXVBIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldkBmdXR1cmUuY29tIiwiY3BmIjoiMzQxLjExMS4xMTEtMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXosIDE3NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjQ1NzUwMzczfQ.jJMWjlvoFkvIV7-KC3tbBh3fICSzz7cW8Hwf5vzf_Rg"
+    }
+  }
+  axios.get('https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/restaurants',options)
+          .then((res) => {
+            console.log(res)
+          setRestaurants(res.data)
+          }).catch((err) => {
+            console.log(err.response)
+          })
+      }
 
+      useEffect( ()=>{pegarRestaurantes()},[] )
 
+      
+
+      
   return (
-    <div>
-    <h1> Feed aqui  </h1>
-   
-    {/* <button onClick={() => history.push('/login')} >Voltar</button>  */}
+    <DivEstilizada>
+      
+    <h1> Feed aqui </h1>
+    {/* {restaurants.map(restaurants=><p> {restaurants.name} </p> )} */}
+
+
+
       <IconButton 
           variant="contained" 
           color="primary" 
-          // onClick={()=> goToLogin(history)}
-          >
-            
-          <HomeRoundedIcon/>
-        
+         >                    
+         <Link to="/login"><HomeRoundedIcon/></Link> 
       </IconButton>
+    
 
-    </div>
-    
-    
-    
-    
+
+    </DivEstilizada>
     
   
   );
@@ -38,3 +56,18 @@ const Feed = () => {
 export default Feed;
 
 
+
+
+
+
+
+
+
+
+
+const DivEstilizada = styled.div`
+display:flex;
+flex-direction:column;
+align-items:center;
+width: 100vw;
+`
