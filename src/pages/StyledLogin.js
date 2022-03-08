@@ -17,6 +17,16 @@ export const InputsContainer = styled.div `
   margin-bottom: 20px;
 `
 
+export const LogoImage = styled.img `
+  width: fullWidth;
+  max-width: 450px;
+`
+
+export const SignUpButtonContainer = styled.div `
+  width: 80vw;
+  max-width: 450px;
+`
+
 // export const LoginFormContainer = styled.div `
 //   display: flex;
 //   flex-direction: column;
@@ -26,10 +36,6 @@ export const InputsContainer = styled.div `
 //   margin-bottom: 20px;
 // `
 
-// export const SignUpButtonContainer = styled.div `
-//   width: 80vw;
-//   max-width: 450px;
-// `
 
 // export const TextStyled1 = styled.h1`
 //   font-family: Roboto;
