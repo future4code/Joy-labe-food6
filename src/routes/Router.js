@@ -5,18 +5,19 @@ import SignUp from '../pages/SignUp'
 // import App from './App'
 import Busca from '../pages/Busca'
 import Feed from '../pages/Feed'
+import PagInicial from './../pages/PagInicial';
 
 const Router = () => {
   return (
     <BrowserRouter>
    
       <Routes>
+      <Route path="/" element={<PagInicial/>} />
         <Route path ="/login" element={<Login/>} />
         <Route path="/cadastro" element={<SignUp/>} />
-        
         <Route path ="/busca" element={<Busca/>}/> 
         <Route path ="/feed" element={<Feed/>}/>  
- 
+    
 
 
 

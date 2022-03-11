@@ -3,10 +3,7 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLogin"
 import {Button} from '@material-ui/core';
-// import { useHistory } from 'react-router';
-// descomentar após o router feito
-
-
+import {Link} from "react-router-dom"
 
 const Login = () =>{
 
@@ -17,9 +14,7 @@ const Login = () =>{
     event.preventDefault()
   }
 
-//  const history = useHistory
-// descomentar após o router feito
-
+     
   return ( 
     <SreenContainer>
       
@@ -65,14 +60,13 @@ const Login = () =>{
       <SignUpButtonContainer>
 
         <Button
-//            onClick={() => goToSignUp(history)}
-// descomentar após o router feito
+           
             type={'submit'}
             variant={"text"}
             fullWidth
           >
-            Não possui cadastro? Clique aqui.
-            
+           
+            <Link to="/cadastro"> Não possui cadastro? Clique aqui.</Link> 
          </Button>
 
       </SignUpButtonContainer>
@@ -84,3 +78,5 @@ const Login = () =>{
   )
 }
 export default Login;
+
+   
