@@ -5,9 +5,6 @@ import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLo
 import {Button} from '@material-ui/core';
 import {Link} from "react-router-dom"
 
-
-
-
 const Login = () =>{
 
 
