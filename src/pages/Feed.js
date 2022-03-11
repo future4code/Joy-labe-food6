@@ -4,7 +4,7 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import axios from 'axios'
-
+import RestaurantCard from '../components/RestaurantCard'
 
 const Feed = () => {
 
@@ -18,8 +18,8 @@ const Feed = () => {
   }
   axios.get('https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/restaurants',options)
           .then((res) => {
-            console.log(res)
-          setRestaurants(res.data)
+            console.log(res.data.restaurants)
+          setRestaurants(res.data.restaurants)
           }).catch((err) => {
             console.log(err.response)
           })
@@ -28,14 +28,25 @@ const Feed = () => {
       useEffect( ()=>{pegarRestaurantes()},[] )
 
       
-
-      
   return (
     <DivEstilizada>
       
-    <h1> Feed aqui </h1>
-    {/* {restaurants.map(restaurants=><p> {restaurants.name} </p> )} */}
+    <h1>Future Eats</h1>
+     {restaurants.map((restaurant)=>{
+      return(
+      //   <div>
+      // <p> {restaurant.name} </p> 
+      
+      //   </div>
 
+        <RestaurantCard
+        
+        restaurant ={restaurant}
+        
+        />
+      )
+     
+    })} 
 
 
       <IconButton 
@@ -44,9 +55,7 @@ const Feed = () => {
          >                    
          <Link to="/login"><HomeRoundedIcon/></Link> 
       </IconButton>
-    
-
-
+     
     </DivEstilizada>
     
   
@@ -58,16 +67,10 @@ export default Feed;
 
 
 
-
-
-
-
-
-
-
 const DivEstilizada = styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
 width: 100vw;
 `
+

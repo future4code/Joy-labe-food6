@@ -1,3 +1,5 @@
-export const goToLogin = (history) => {
-    history.push("/login")
+
+
+export const goToRestaurant = (history, id) => {
+    history.push(`/restaurante/${id}`)
 }
