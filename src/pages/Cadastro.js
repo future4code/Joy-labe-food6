@@ -2,18 +2,27 @@ import React from "react"
 import Footer from '../components/Footer'
 
 
-const Perfil = ()=> {
+const Cadastro = ()=> {
   return(
     <div >
      
-     <h1>Meu Perfil</h1>
+     <h1>Cadastrar</h1>
 
 
 
-<Footer/>
+
+
+
+
+
+
+
+
+    <Footer/>
+
     </div>
   )
 }
 
-export default Perfil;
+export default Cadastro;
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from '../pages/Login'
-import SignUp from '../pages/SignUp'
-// import App from './App'
+import Cadastro from '../pages/Cadastro'
 import Busca from '../pages/Busca'
 import Feed from '../pages/Feed'
 import PagInicial from './../pages/PagInicial';
+import Perfil from '../pages/Perfil';
+import Carrinho from '../pages/Carrinho'
 
 const Router = () => {
   return (
@@ -14,11 +15,11 @@ const Router = () => {
       <Routes>
       <Route path="/" element={<PagInicial/>} />
         <Route path ="/login" element={<Login/>} />
-        <Route path="/cadastro" element={<SignUp/>} />
+        <Route path="/cadastro" element={<Cadastro/>} />
         <Route path ="/busca" element={<Busca/>}/> 
         <Route path ="/feed" element={<Feed/>}/>  
-    
-
+        <Route path ="/perfil" element={<Perfil/>}/>  
+        <Route path ="/carrinho" element={<Carrinho/>}/>  
 
 
 
