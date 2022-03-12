@@ -3,8 +3,12 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLogin"
 import {Button} from '@material-ui/core';
+<<<<<<< HEAD
 import Footer from '../components/Footer'
 import {Link} from 'react-router-dom'
+=======
+import {Link} from "react-router-dom"
+>>>>>>> origin
 
 const Login = () =>{
 
