@@ -3,23 +3,30 @@ import React from 'react';
 import useForm from '../hooks/useForm';
 import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLogin"
 import {Button} from '@material-ui/core';
-<<<<<<< HEAD
 import Footer from '../components/Footer'
 import {Link} from 'react-router-dom'
-=======
-import {Link} from "react-router-dom"
->>>>>>> origin
+import axios from'axios'
 
 const Login = () =>{
 
-
   const [form, onChange, clear] = useForm({email:"", password:""})
-  
+
   const onSubmitForm = (event) =>{
     event.preventDefault()
+    login()
+    
   }
 
-     
+  const login =()=>{
+
+    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/login`,form)
+    .then((res)=>{
+      localStorage.setItem("token",res.data.token)
+      clear()
+    })
+    .catch((err)=>alert("Erro no Login"))
+    }
+    
   return ( 
     <SreenContainer>
       
@@ -28,7 +35,7 @@ const Login = () =>{
           <TextField 
             name={"email"}
             value={form.email}
-            onChange={onchange}
+            onChange={onChange}
             label={"E-mail*"}
             variant={"outlined"}
             fullWidth
@@ -40,7 +47,7 @@ const Login = () =>{
           <TextField 
             name={"password"}
             value={form.password}
-            onChange={onchange}
+            onChange={onChange}
             label={"Senha*"}
             variant={"outlined"}
             fullWidth
@@ -54,11 +61,12 @@ const Login = () =>{
             variant={"contained"}
             fullWidth
             color={'primary'}
+            margin={'normal'}
           >
             Entrar
             
           </Button>
-
+          
         </form>
 
       </InputsContainer>
@@ -69,9 +77,10 @@ const Login = () =>{
             type={'submit'}
             variant={"text"}
             fullWidth
+            
           >
-           
-            <Link to="/cadastro"> Não possui cadastro? Clique aqui.</Link> 
+            
+            <Link to="/cadastro"> Não possui cadastro? Clique aqui!</Link> 
          </Button>
 
       </SignUpButtonContainer>

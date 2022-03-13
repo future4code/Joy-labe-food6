@@ -1,5 +1,6 @@
 
 
-export const goToRestaurant = (history, id) => {
-    history.push(`/restaurante/${id}`)
+
+export const goToFeed = (history) => {
+    history.push('/feed')
 }
