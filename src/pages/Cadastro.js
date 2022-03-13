@@ -1,37 +1,52 @@
-import { TextField } from '@material-ui/core';
-import React from 'react';
-import useForm from '../hooks/useForm';
-import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLogin"
-import {Button} from '@material-ui/core';
+import React from "react"
 import Footer from '../components/Footer'
-import {Link} from 'react-router-dom'
-import axios from'axios'
+import {SreenContainer, InputsContainer, SignUpButtonContainer} from "./StyledLogin"
+import useForm from '../hooks/useForm';
+import { TextField } from '@material-ui/core';
+import {Button} from '@material-ui/core';
+import axios from 'axios'
 
-const Login = () =>{
+const Cadastro = ()=> {
 
-  const [form, onChange, clear] = useForm({email:"", password:""})
-
+  const [form, onChange, clear] = useForm({name:"",email:"", password:""})
+  
   const onSubmitForm = (event) =>{
     event.preventDefault()
-    login()
+    console.log(form)
     
   }
 
-  const login =()=>{
+  const login = ()=>{
+    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/login`)
 
-    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodB/login`,form)
-    .then((res)=>{
-      localStorage.setItem("token",res.data.token)
-      clear()
-    })
-    .catch((err)=>alert("Erro no Login"))
-    }
+  
+  }
+
+
+  return(
+    <div >
+     
+     <h1>Crie sua conta</h1>
+
     
-  return ( 
-    <SreenContainer>
+
+     <SreenContainer>
       
       <InputsContainer>
         <form onSubmit={onSubmitForm}> 
+
+        <TextField 
+            name={"name"}
+            value={form.name}
+            onChange={onChange}
+            label={"Nome"}
+            variant={"outlined"}
+            fullWidth
+            margin={'normal'}
+            required
+            type={'name'}
+          />
+
           <TextField 
             name={"email"}
             value={form.email}
@@ -63,25 +78,19 @@ const Login = () =>{
             color={'primary'}
             margin={'normal'}
           >
-            Entrar
+            Cadastrar
             
           </Button>
-          
+
         </form>
 
       </InputsContainer>
       <SignUpButtonContainer>
 
-        <Button
+      
+        
            
-            type={'submit'}
-            variant={"text"}
-            fullWidth
-            
-          >
-            
-            <Link to="/cadastro"> Não possui cadastro? Clique aqui!</Link> 
-         </Button>
+        
 
       </SignUpButtonContainer>
 
@@ -89,10 +98,18 @@ const Login = () =>{
       <Footer/>
     </SreenContainer>
 
-    
-  )
- 
-}
-export default Login;
 
-   
+
+
+
+
+
+
+    <Footer/>
+
+    </div>
+  )
+}
+
+export default Cadastro;
+

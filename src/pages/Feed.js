@@ -1,10 +1,8 @@
 import React, {useState,useEffect} from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import {Link} from "react-router-dom"
 import styled from 'styled-components'
 import axios from 'axios'
 import RestaurantCard from '../components/RestaurantCard'
+import Footer from '../components/Footer'
 
 const Feed = () => {
 
@@ -32,6 +30,7 @@ const Feed = () => {
     <DivEstilizada>
       
     <h1>Future Eats</h1>
+    <Footer/>
      {restaurants.map((restaurant)=>{
       return(
       //   <div>
@@ -41,21 +40,16 @@ const Feed = () => {
 
         <RestaurantCard
         
-        restaurant ={restaurant}
+        restaurant = {restaurant}
         
-        />
+        /> 
       )
      
     })} 
-
-
-      <IconButton 
-          variant="contained" 
-          color="primary" 
-         >                    
-         <Link to="/login"><HomeRoundedIcon/></Link> 
-      </IconButton>
-     
+                     
+        
+        
+    
     </DivEstilizada>
     
   
@@ -66,11 +60,11 @@ export default Feed;
 
 
 
-
 const DivEstilizada = styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
 width: 100vw;
+justify-content: space-between;
 `
 
