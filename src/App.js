@@ -1,23 +1,16 @@
-import React from 'react';
-import Router from './routes/Router';
-import Login from './pages/Login';
-import PagInicial from './pages/PagInicial';
+import React from "react";
+import Routers from "./route/Routers";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./constants/theme";
+import GlobalState from "./global/GlobalState";
 
-const App = () => {
+function App() {
   return (
-    <div>
-
-      <Router/>
-      <PagInicial />
-      <Login />
-    
-    </div>
-    
-    
-    
-    
-    
-  
+    <GlobalState>
+      <ThemeProvider theme={theme}>
+        <Routers />
+      </ThemeProvider>
+    </GlobalState>
   );
 }
 
