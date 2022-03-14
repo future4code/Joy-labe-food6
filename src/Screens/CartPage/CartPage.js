@@ -98,7 +98,7 @@ function CartPage() {
         </ShippingDiv>
         <SubtotalDiv>
           <SubtotalTitle>SUBTOTAL</SubtotalTitle>
-          <SubtotalValue> R$0,00 </SubtotalValue>
+          <SubtotalValue> R$00,00 </SubtotalValue>
         </SubtotalDiv>
         <PaymentMethodDiv>
           <PaymentMethodTitle>Forma de Pagamento</PaymentMethodTitle>
